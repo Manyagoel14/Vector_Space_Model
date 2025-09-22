@@ -97,9 +97,9 @@ The project extends the standard VSM implementation with:
 
 ## Novelity Features
 
- - Soundex matching for spelling variations.
  - Recency-based ranking to prioritize recent documents.
  - Contextual snippet generation with highlighted query terms.
+ - Formatting done for readable output. Displayed the timestamp of when the file was created, and the relevant scores.
 
 ## Contributers 
 
