@@ -1,6 +1,6 @@
-# Vector_Space_Model
+# Vector Space Model
 # Information Retrieval – Assignment 1  
-**Course:** CSD358 – Information Retrieval Lab  
+**Course:** CSD358: Information Retrieval 
 **Group Project**  
 
 ##  Overview  
