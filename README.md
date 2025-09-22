@@ -51,4 +51,12 @@ The project extends the standard VSM implementation with:
 ---
 
 ## Project Structure  
+```
+├── corpus/ 
+├── main.py 
+├── README.md 
+```
+
+
+
 
