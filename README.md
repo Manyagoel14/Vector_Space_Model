@@ -57,6 +57,35 @@ The project extends the standard VSM implementation with:
 ├── README.md 
 ```
 
+## Getting Started
+
+- Install Dependencies
+   
+   ```
+   pip install nltk colorama
+   ```
+
+ - Modules Required
+
+   ```
+   import nltk
+   nltk.download('punkt')
+   nltk.download('stopwords')
+   nltk.download('averaged_perceptron_tagger')
+   nltk.download('wordnet')
+   nltk.download('omw-1.4')   
+
+   ```
+
+ - Run The Program
+
+   ```
+    python main.py
+   ```
+   
+## Example Query
+
+
 
 
 
