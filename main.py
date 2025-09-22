@@ -7,11 +7,15 @@ import datetime
 from colorama import Fore, Style
 from nltk import pos_tag
 
+#novelty part 1
 def get_snippet(file_path, query_token, window=100):
     with open(file_path, "r", encoding="utf-8") as f:
         text = f.read()
+    #taking the whole file
     text_lower = text.lower()
     x = ""
+    
+    #printing the line where any one of the query terms appear
     for term in query_token:
         if term in text_lower.split():
             idx = text_lower.index(term)
@@ -20,10 +24,10 @@ def get_snippet(file_path, query_token, window=100):
             snippet = text[start:end].replace("\n", " ")
             x = "..." + snippet + "..."
             break
-
+    #if no word in file matches the query terms- then just print the first few lines
     if not x:
         x = (text[:100] + "...").replace("\n", " ")
-
+    #highlighting the query terms
     for word in x.split():
         clean_word = ''.join(ch for ch in word if ch.isalnum())  # remove punctuation
         lemma = word_len.lemmatize(clean_word.lower())
@@ -45,7 +49,7 @@ def soundex(name):
     }
     soundex_code = name[0]
 
-    # Replace letters with digits
+    #replace letters with digits
     for char in name[1:]:
         for key, val in codes.items():
             if char in key:
@@ -59,6 +63,9 @@ def soundex(name):
     soundex_code = soundex_code[0] + ''.join([c for c in soundex_code[1:] if c.isdigit()])
     soundex_code = (soundex_code + "000")[:4]
     return soundex_code
+
+#novelty part 2
+#categorizing each term as a verb, noun, adverb, etc
 def get_wordnet_pos(tag):
     if tag.startswith('J'):
         return wordnet.ADJ
@@ -102,9 +109,8 @@ for file in os.listdir("corpus"):
             postings.setdefault(term, []).append((i+1, freq))
         i+=1
 #after this i have posting list,tf for all documents
-
-    
-#query ka
+ 
+#query ka pre-processing
 query= input("Enter the query: ")
 query_words=word_tokenize(query.lower())
 tagged_words = pos_tag(query_words)
@@ -113,11 +119,11 @@ for x, tag in tagged_words:
     if x.isalpha() and x not in stopword_s:
         lemma = word_len.lemmatize(x, pos=get_wordnet_pos(tag))
         query_token.append(lemma)
-        query_token.append(soundex(lemma))   #also add soundex
-
-
+        query_token.append(soundex(lemma))
 tf_query = Counter(query_token)
+#after this i have a processed query list and tf of the query
 
+#calculation of tf-idf scores
 log_tf={}  
 idf_query={}
 weight_query={}
@@ -126,7 +132,8 @@ for term in query_token:
         log_tf[term] = 1 + math.log10(tf_query[term])
         idf_query[term] = math.log10(N / len(postings[term]))
         weight_query[term]=idf_query[term]*log_tf[term]
-
+        
+#calculation of tdf-if for every documents
 values={}
 for i in tf_for_each:
     tf_doc=tf_for_each[i]
@@ -154,6 +161,7 @@ for doc_id, score in values.items():
     top_docs.append((file, score, mtime))
 import time
 
+#novelty part 3
 now = time.time()  #current timestamp
 alpha = 0.9        #weight for cosine score
 beta = 0.1         #weight for timestamp
@@ -161,12 +169,13 @@ beta = 0.1         #weight for timestamp
 combined_docs = []
 for file, score, mtime in top_docs:
     recency_score = 1 / (1 + (now - mtime)/86400)  # 86400 seconds in a day
-    combined_score = alpha*score + beta*recency_score
+    combined_score = alpha*score + beta*recency_score #new score= aplha.tf-idf_score+beta.recency_score
     combined_docs.append((file, combined_score, score, mtime))
 
 # sort by combined score
 combined_docs = sorted(combined_docs, key=lambda x: -x[1])[:10]
 
+#format and print the top 10 documents
 i=1
 print()
 print(Style.BRIGHT +"-"*50+"RESULTS"+"-"*50+ Style.RESET_ALL)
