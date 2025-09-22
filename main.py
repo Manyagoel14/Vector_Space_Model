@@ -123,7 +123,7 @@ for x, tag in tagged_words:
 tf_query = Counter(query_token)
 #after this i have a processed query list and tf of the query
 
-#calculation of tf-idf scores
+#calculation of tf-idf scores for query terms
 log_tf={}  
 idf_query={}
 weight_query={}
@@ -133,7 +133,7 @@ for term in query_token:
         idf_query[term] = math.log10(N / len(postings[term]))
         weight_query[term]=idf_query[term]*log_tf[term]
         
-#calculation of tdf-if for every documents
+#cosine normalization of tf scores for document terms
 values={}
 for i in tf_for_each:
     tf_doc=tf_for_each[i]
@@ -188,4 +188,5 @@ for file, comb_score, score, mtime in combined_docs:
     print(Fore.RED,Style.BRIGHT,file.capitalize(),"\t",f"Combined Score: {comb_score:.4f}", "\t",f"Tf-Idf Score: {score:.4f}","\t","Timestamp:", timestamp_with_ms,Style.RESET_ALL)
     get_snippet(file_path, query_token)
     print("\n")
+
     i+=1
