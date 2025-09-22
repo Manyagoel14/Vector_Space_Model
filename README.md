@@ -101,6 +101,7 @@ The project extends the standard VSM implementation with:
  - Recency-based ranking to prioritize recent documents.
  - Contextual snippet generation with highlighted query terms.
  - Formatting done for readable output. Displayed the timestamp of when the file was created, and the relevant scores.
+ - Part-of-Speech (POS) tagging to enhance retrieval accuracy by leveraging syntactic information (e.g., distinguishing between nouns, verbs, etc.).
 
 ## Contributers 
 
