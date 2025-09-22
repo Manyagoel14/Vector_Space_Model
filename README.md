@@ -9,7 +9,8 @@ This project implements a **ranked retrieval system using the Vector Space Model
 The project extends the standard VSM implementation with:  
 - **Soundex-based spelling tolerance** (for handling spelling variations of names/words).  
 - **Recency-based ranking** (combining TF-IDF similarity with document timestamp).  
-- **Contextual snippets** (highlighting query terms in retrieved documents).  
+- **Contextual snippets** (highlighting query terms in retrieved documents).
+- **Part-of-Speech (POS) tagging** (refines query-document matching by distinguishing between different grammatical roles [e.g., nouns vs. verbs], improving retrieval precision and context awareness).
 
 ---
 
