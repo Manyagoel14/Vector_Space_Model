@@ -83,7 +83,35 @@ The project extends the standard VSM implementation with:
     python main.py
    ```
    
-## Example Query
+## Example Output
+
+ - Query :
+   
+   <img width="1804" height="337" alt="Screenshot 2025-09-22 092718" src="https://github.com/user-attachments/assets/b29fdd5e-335d-4373-8c8c-f94cbb03b20f" />
+
+ - Results :
+
+  <img width="1826" height="770" alt="Screenshot 2025-09-22 092753" src="https://github.com/user-attachments/assets/6ad8bf33-0624-4bb3-b55c-1d07ab5e3dc9" />
+
+  <img width="1820" height="432" alt="image" src="https://github.com/user-attachments/assets/a84e0d2e-556a-4f70-a1e6-dd955ff1577a" />
+
+## Novelity Features
+
+ - Soundex matching for spelling variations.
+ - Recency-based ranking to prioritize recent documents.
+ - Contextual snippet generation with highlighted query terms.
+
+## Contributers 
+
+ - Manya Goel
+ - Dhanya Girdhar
+ - Raashi Sharma
+
+  
+
+
+ 
+
 
 
 
