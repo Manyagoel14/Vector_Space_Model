@@ -91,9 +91,9 @@ The project extends the standard VSM implementation with:
 
  - Results :
 
-  <img width="1826" height="770" alt="Screenshot 2025-09-22 092753" src="https://github.com/user-attachments/assets/6ad8bf33-0624-4bb3-b55c-1d07ab5e3dc9" />
+   <img width="1826" height="770" alt="Screenshot 2025-09-22 092753" src="https://github.com/user-attachments/assets/6ad8bf33-0624-4bb3-b55c-1d07ab5e3dc9" />
 
-  <img width="1820" height="432" alt="image" src="https://github.com/user-attachments/assets/a84e0d2e-556a-4f70-a1e6-dd955ff1577a" />
+   <img width="1820" height="432" alt="image" src="https://github.com/user-attachments/assets/a84e0d2e-556a-4f70-a1e6-dd955ff1577a" />
 
 ## Novelity Features
 
